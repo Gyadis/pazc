@@ -41,3 +41,56 @@
 4. **`PaymentDialog.fxml` (Modálne okno platby)**
    
    `Payment` — vytvorenie nového záznamu o platbe (`amount`, `paymentMethod`, `paymentDate`).
+
+
+
+
+```mermaid
+erDiagram
+    USER ||--o{ DEVICE : "owns (1:N)"
+    USER ||--o{ SERVICE_REQUEST : "creates/handles (1:N)"
+    DEVICE ||--o{ SERVICE_REQUEST : "repaired in (1:N)"
+    SERVICE_REQUEST ||--o{ REQUEST_PART : "uses (1:N)"
+    SPARE_PART ||--o{ REQUEST_PART : "used in (1:N)"
+    SERVICE_REQUEST ||--o{ PAYMENT : "paid by (1:N)"
+
+    USER {
+        int id PK
+        string firstName
+        string lastName
+        string phone
+        string role
+    }
+    DEVICE {
+        int id PK
+        int userId FK
+        string manufacturer
+        string model
+    }
+    SERVICE_REQUEST {
+        int id PK
+        int customerId FK
+        int employeeId FK
+        int deviceId FK
+        string status
+        decimal finalPrice
+    }
+    SPARE_PART {
+        int id PK
+        string name
+        int quantity
+        decimal sellingPrice
+    }
+    REQUEST_PART {
+        int id PK
+        int requestId FK
+        int sparePartId FK
+        int quantity
+    }
+    PAYMENT {
+        int id PK
+        int requestId FK
+        decimal amount
+        string paymentMethod
+    }
+```
