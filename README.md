@@ -41,4 +41,5 @@
    `Device` — výber zariadenia (`deviceId`) priradeného k zákazníkovi alebo zaevidovanie nového zariadenia.
 
 4. **`PaymentDialog.fxml` (Modálne okno platby)**
+   
    `Payment` — vytvorenie nového záznamu o platbe (`amount`, `paymentMethod`, `paymentDate`).
