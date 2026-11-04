@@ -1,6 +1,7 @@
 # pazc
 ### Diagram:
-<img width="1036" height="768" alt="photo_2026-11-03_20-10-13" src="https://github.com/user-attachments/assets/1bc100b5-71cd-40ee-8aa1-512dad87537f" />
+<img width="1171" height="674" alt="image" src="https://github.com/user-attachments/assets/cf06a6eb-db07-4144-bc41-1e78f2895038" />
+
 
 ===============================================
 
@@ -40,60 +41,6 @@
    `Device` — výber zariadenia (`deviceId`) priradeného k zákazníkovi alebo zaevidovanie nového zariadenia.
 
 6. **`PaymentDialog.fxml` (Modálne okno platby)**
-
-
-### ER Diagrama databázy (TechFix)
-
-```mermaid
-erDiagram
-    USER ||--o{ DEVICE : "owns (1:N)"
-    USER ||--o{ SERVICE_REQUEST : "creates/handles (1:N)"
-    DEVICE ||--o{ SERVICE_REQUEST : "repaired in (1:N)"
-    SERVICE_REQUEST ||--o{ REQUEST_PART : "uses (1:N)"
-    SPARE_PART ||--o{ REQUEST_PART : "used in (1:N)"
-    SERVICE_REQUEST ||--o{ PAYMENT : "paid by (1:N)"
-
-    USER {
-        int id PK
-        string firstName
-        string lastName
-        string phone
-        string role
-    }
-    DEVICE {
-        int id PK
-        int userId FK
-        string manufacturer
-        string model
-    }
-    SERVICE_REQUEST {
-        int id PK
-        int customerId FK
-        int employeeId FK
-        int deviceId FK
-        string status
-        decimal finalPrice
-    }
-    SPARE_PART {
-        int id PK
-        string name
-        int quantity
-        decimal sellingPrice
-    }
-    REQUEST_PART {
-        int id PK
-        int requestId FK
-        int sparePartId FK
-        int quantity
-    }
-    PAYMENT {
-        int id PK
-        int requestId FK
-        decimal amount
-        string paymentMethod
-    }
-```
-
    `Payment` — vytvorenie nového záznamu o platbe (`amount`, `paymentMethod`, `paymentDate`).
 
    `ServiceRequest` — načítanie výslednej sumy požiadavky (`finalPrice`) a zmena stavu požiadavky po zaplatení.
