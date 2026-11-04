@@ -32,7 +32,7 @@
 
    `SparePart` — načítanie dostupných dielov zo skladu a aktualizácia ich množstva pri použití.
 
-4. **`NewRequest.fxml` (Modálne okno novej požiadavky)**
+3. **`NewRequest.fxml` (Modálne okno novej požiadavky)**
 
    `ServiceRequest` — vytvorenie nového záznamu v databáze.
 
@@ -40,9 +40,5 @@
 
    `Device` — výber zariadenia (`deviceId`) priradeného k zákazníkovi alebo zaevidovanie nového zariadenia.
 
-6. **`PaymentDialog.fxml` (Modálne okno platby)**
+4. **`PaymentDialog.fxml` (Modálne okno platby)**
    `Payment` — vytvorenie nového záznamu o platbe (`amount`, `paymentMethod`, `paymentDate`).
-
-   `ServiceRequest` — načítanie výslednej sumy požiadavky (`finalPrice`) a zmena stavu požiadavky po zaplatení.
-     `Payment` — vytvorenie nového záznamu o platbe (`amount`, `paymentMethod`, `paymentDate`).
-     `ServiceRequest` — načítanie výslednej sumy požiadavky (`finalPrice`) a zmena stavu požiadavky po zaplatení.
